@@ -18,6 +18,7 @@ def archive():
         print ("Archive Failed!")
         print (error)
     else: 
+         
          print ("Backup file created:",archive_location+file_name)
 #         print ("File size: "'{:,.0f}'.format(os.path.getsize(archive_location+file_name)/float(1<<20))+" MB")
 
