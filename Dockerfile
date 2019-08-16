@@ -8,7 +8,7 @@ RUN apk add --no-cache python3 py3-pip
 ENV AWS_ACCESS_KEY_ID "*null*"
 ENV AWS_SECRET_ACCESS_KEY "*null*"
 ENV AWS_DEFAULT_REGION "*null*"
-
+ENV ARCHIVE_SOURCE "*null*"
 
 COPY . /src/
 WORKDIR /src

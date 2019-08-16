@@ -1,15 +1,17 @@
 import os
 import time
 import tarfile
+from hurry.filesize import size
 from S3_upload import upload
 
 
 
 def archive():
-    archive_location = '/tmp/'
+    archive_location = '/mnt/'
     file_name = 'backup-'+time.strftime("%Y%m%d-%H%M%S")+'.tar.gz'
-    #archive_source = os.environ["Archive_Source"]''
-    archive_source = '/tmp/test/'
+    #archive_source = os.environ["ARCHIVE_SOURCE"]
+    archive_source = '/home/iqbal/Downloads'
+
 
     try: 
         with tarfile.open(archive_location+file_name, mode='w:gz') as archive:
@@ -20,7 +22,8 @@ def archive():
     else: 
          
          print ("Backup file created:",archive_location+file_name)
-#         print ("File size: "'{:,.0f}'.format(os.path.getsize(archive_location+file_name)/float(1<<20))+" MB")
+         print ("Archive file size: "'{:,.0f}'.format(os.path.getsize(archive_location+file_name)/float(1<<20))+" MB")
+#         print (os.path.getsize(archive_location+file_name)/ (1024*1024.0))
 
          print ("Uploading backup to s3 bucket")
          upload(archive_location, file_name)
