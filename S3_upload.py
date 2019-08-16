@@ -1,7 +1,5 @@
 import os
 import boto3
-import progressbar
-
 
 
 
@@ -20,7 +18,6 @@ def upload(archive_location,file_name):
            Bucket = bucket_name,
            Filename=archive_location+file_name,
            Key=file_name,
-#           Callback=upload_progress,
            ExtraArgs= {"Metadata": 
                {"AppName":"Wordpress",
                 "Retention":"30Days",
