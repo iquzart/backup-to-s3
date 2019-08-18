@@ -11,7 +11,7 @@ def upload(archive_location,file_name):
         region_name=os.environ["AWS_DEFAULT_REGION"]
         )
 
-    bucket_name = 'alpine-backup-01'
+     bucket_name = os.environ["BUCKET_NAME"]
    
     #print ("Uploading Archive to s3 bucket") 
     s3.upload_file(
