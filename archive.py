@@ -29,10 +29,10 @@ def archive():
 
 
          logging.info('uploading backup to s3 bucket - %s',bucket_name)
-#         upload(archive_location, file_name)
+         upload(archive_location, file_name)
 
 
          logging.info('clearing the local backup file - %s%s',archive_location,file_name)
-#         os.remove(archive_location+file_name)
+         os.remove(archive_location+file_name)
 
 archive ()
